@@ -108,8 +108,8 @@
     left: 0;
     width: 8px;
     height: 8px;
-    /* The inner dot uses a dark grey colour to complement the outer ring */
-    background: hsl(var(--secondary));
+    /* The inner dot uses white to stand out against dark backgrounds */
+    background: hsl(var(--primary));
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -121,9 +121,9 @@
     left: 0;
     width: 32px;
     height: 32px;
-    /* The outer circle has a subtle fill and border for better visibility */
-    background: hsla(var(--primary) / 0.1);
-    border: 2px solid hsla(var(--primary) / 0.4);
+    /* The outer circle uses a dark grey tone with subtle opacity for contrast */
+    background: hsla(var(--secondary) / 0.2);
+    border: 2px solid hsla(var(--secondary) / 0.5);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;

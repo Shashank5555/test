@@ -23,7 +23,7 @@ const HeroSection = () => {
     const typewriterElement = document.querySelector('.typewriter');
     if (!typewriterElement) return;
 
-    const titles = ['Data Scientist', 'Machine Learning Engineer', 'Data Analyst'];
+    const titles = ['Machine Learning Engineer', 'Data Scientist', 'Data Analyst', 'Data Engineer'];
     let titleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -115,7 +115,13 @@ const HeroSection = () => {
       </div>
 
       {/* Overlay content positioned above and below the model */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col justify-between items-center min-h-screen py-16 text-center space-y-8">
+      {/*
+        Overlay wrapper: Center the name, profession, description and buttons.  
+        We reduce the top and bottom padding and vertical spacing between
+        elements so the content sits closer together and can overlap the
+        background Spline model without feeling overly spread out.  
+      */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center justify-center min-h-screen py-12 text-center space-y-64">
         {/* Name and profession at the top */}
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bricolage font-light text-foreground leading-tight">

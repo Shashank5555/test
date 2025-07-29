@@ -6,11 +6,11 @@ import {
   EnvelopeSimple,
   User,
   ChatText,
-  GithubLogo,
   LinkedinLogo,
   ArrowUp,
   Heart,
 } from 'phosphor-react';
+import { FaGithub } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,17 +29,19 @@ const ContactSection = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { 
-      icon: GithubLogo, 
-      label: 'GitHub', 
-      url: 'https://github.com/Shashank5555', 
-      color: 'hover:text-primary' 
+    {
+      icon: FaGithub,
+      label: 'GitHub',
+      url: 'https://github.com/Shashank5555',
+      // Use a consistent hover colour so the icon brightens instead of dimming
+      color: 'hover:text-primary'
     },
-    { 
-      icon: LinkedinLogo, 
-      label: 'LinkedIn', 
-      url: 'https://www.linkedin.com/in/sai-shashank-yerra', 
-      color: 'hover:text-accent' 
+    {
+      icon: LinkedinLogo,
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/sai-shashank-yerra',
+      // Remove accent hover to prevent dimming on hover
+      color: 'hover:text-primary'
     }
   ];
 
@@ -170,7 +172,7 @@ const ContactSection = () => {
           <div ref={formRef} className="space-y-8">
             <div className="space-y-6">
               <h3 className="text-2xl font-inter font-light text-foreground">
-                Send me a <span className="text-accent">message</span>
+                Send me a <span className="text-foreground">message</span>
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -186,7 +188,7 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 glass-input border-2 border-border font-inter placeholder:text-muted-foreground rounded-lg"
+                    className="w-full p-4 glass-input border-2 border-border/60 font-inter placeholder:text-muted-foreground rounded-lg"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -203,7 +205,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 glass-input border-2 border-border font-inter placeholder:text-muted-foreground rounded-lg"
+                    className="w-full p-4 glass-input border-2 border-border/60 font-inter placeholder:text-muted-foreground rounded-lg"
                     placeholder="Enter your email address"
                   />
                 </div>
@@ -220,7 +222,7 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full p-4 glass-input border-2 border-border font-inter placeholder:text-muted-foreground rounded-lg resize-none"
+                    className="w-full p-4 glass-input border-2 border-border/60 font-inter placeholder:text-muted-foreground rounded-lg resize-none"
                     placeholder="Tell me about your project or just say hello..."
                   />
                 </div>
@@ -287,7 +289,7 @@ const ContactSection = () => {
             {/* Social Links */}
             <div className="space-y-6">
               <h4 className="text-xl font-inter font-light text-foreground">
-                Follow <span className="text-accent">me</span>
+                Follow <span className="text-foreground">me</span>
               </h4>
               
               <div className="flex gap-4">
@@ -301,7 +303,6 @@ const ContactSection = () => {
                   >
                     <social.icon
                       size={24}
-                      weight="fill"
                       className="transition-transform duration-300 group-hover:scale-110"
                     />
                   </a>

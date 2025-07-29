@@ -88,10 +88,10 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
       {/* Logo/Brand */}
       <div ref={logoRef} className="text-center mb-12">
         <h1 className="text-6xl md:text-8xl font-inter font-light text-foreground text-glow">
-          Sai Shashank
+          Sai Shashank Yerra
         </h1>
         <p className="text-xl md:text-2xl font-inter font-light text-muted-foreground mt-4 tracking-wide">
-          Data Scientist & Developer
+          Data Enthusiast
         </p>
       </div>
 
