@@ -85,7 +85,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="text-2xl font-inter font-light text-foreground">
-              <span className="text-primary">Sai</span> <span className="text-accent">Shashank</span>
+              <span className="text-primary">Sai</span> <span className="text-primary">Shashank</span>
             </div>
 
             {/* Desktop Navigation */}

@@ -108,7 +108,8 @@
     left: 0;
     width: 8px;
     height: 8px;
-    background: hsl(var(--primary));
+    /* The inner dot uses a dark grey colour to complement the outer ring */
+    background: hsl(var(--secondary));
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -120,7 +121,9 @@
     left: 0;
     width: 32px;
     height: 32px;
-    border: 2px solid hsl(var(--primary));
+    /* The outer circle has a subtle fill and border for better visibility */
+    background: hsla(var(--primary) / 0.1);
+    border: 2px solid hsla(var(--primary) / 0.4);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
@@ -202,6 +205,13 @@
   .project-card:hover {
     transform: translateY(-4px);
     border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Add a gentle glow to project text on hover */
+  .project-card:hover h3,
+  .project-card:hover p,
+  .project-card:hover span {
+    text-shadow: 0 0 6px hsla(var(--primary) / 0.6);
   }
 
   /* Clean Primary Button - Smaller */

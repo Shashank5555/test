@@ -115,7 +115,7 @@ const HeroSection = () => {
       </div>
 
       {/* Overlay content positioned above and below the model */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col justify-between items-center min-h-screen py-24 text-center space-y-12">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col justify-between items-center min-h-screen py-16 text-center space-y-8">
         {/* Name and profession at the top */}
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bricolage font-light text-foreground leading-tight">

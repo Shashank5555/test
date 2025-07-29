@@ -70,7 +70,7 @@ const AboutSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveCategory((prev) => (prev + 1) % expertiseCategories.length);
-    }, 4000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [expertiseCategories.length]);
@@ -138,10 +138,10 @@ const AboutSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section: Photo & About Me */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Profile Image */}
           <div ref={profileRef} className="relative flex justify-center">
-            <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden transition-all duration-300">
+            <div className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden transition-all duration-300">
               <img
                 src="/lovable-uploads/6fbc99c3-45a2-47f6-9d79-25327a6dbe4a.png"
                 alt="Sai Shashank Yerra - Data Scientist"
@@ -245,10 +245,10 @@ const AboutSection = () => {
                 {expertiseCategories[activeCategory].skills.map((skill, index) => (
                   <div
                     key={index}
-                    className="skill-container bg-card border border-border/50 rounded-lg p-3 flex items-center gap-2 hover:border-primary/30 transition-colors duration-300"
+                    className="skill-container bg-card border border-border/50 rounded-lg p-4 flex flex-col items-center justify-center gap-2 hover:border-primary/30 transition-colors duration-300 aspect-square min-w-[96px]"
                   >
-                    <CheckCircle size={14} className="text-primary" />
-                    <span className="text-sm text-foreground font-inter">{skill}</span>
+                    <CheckCircle size={20} className="text-primary" />
+                    <span className="text-xs text-foreground font-inter text-center">{skill}</span>
                   </div>
                 ))}
               </div>

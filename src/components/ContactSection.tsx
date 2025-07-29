@@ -176,7 +176,7 @@ const ContactSection = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Input */}
                 <div className="form-input space-y-2">
-                  <label className="flex items-center gap-2 text-foreground/80 font-inter text-sm">
+                  <label className="flex items-center gap-2 text-foreground font-inter text-sm">
                     <User size={16} />
                     Your Name
                   </label>
@@ -186,14 +186,14 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 glass-input border border-border font-inter placeholder:text-muted-foreground rounded-lg"
+                    className="w-full p-4 glass-input border-2 border-border font-inter placeholder:text-muted-foreground rounded-lg"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 {/* Email Input */}
                 <div className="form-input space-y-2">
-                  <label className="flex items-center gap-2 text-foreground/80 font-inter text-sm">
+                  <label className="flex items-center gap-2 text-foreground font-inter text-sm">
                     <EnvelopeSimple size={16} />
                     Email Address
                   </label>
@@ -203,14 +203,14 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 glass-input border border-border font-inter placeholder:text-muted-foreground rounded-lg"
+                    className="w-full p-4 glass-input border-2 border-border font-inter placeholder:text-muted-foreground rounded-lg"
                     placeholder="Enter your email address"
                   />
                 </div>
 
                 {/* Message Input */}
                 <div className="form-input space-y-2">
-                  <label className="flex items-center gap-2 text-foreground/80 font-inter text-sm">
+                  <label className="flex items-center gap-2 text-foreground font-inter text-sm">
                     <ChatText size={16} />
                     Message
                   </label>
@@ -220,7 +220,7 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full p-4 glass-input border border-border font-inter placeholder:text-muted-foreground rounded-lg resize-none"
+                    className="w-full p-4 glass-input border-2 border-border font-inter placeholder:text-muted-foreground rounded-lg resize-none"
                     placeholder="Tell me about your project or just say hello..."
                   />
                 </div>
@@ -299,9 +299,10 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     className={`social-icon p-4 glass-card rounded-lg group ${social.color} transition-colors duration-300`}
                   >
-                    <social.icon 
-                      size={24} 
-                      className="transition-transform duration-300 group-hover:scale-110" 
+                    <social.icon
+                      size={24}
+                      weight="fill"
+                      className="transition-transform duration-300 group-hover:scale-110"
                     />
                   </a>
                 ))}
@@ -316,10 +317,10 @@ const ContactSection = () => {
         <div className="pt-12 flex flex-col items-center gap-4">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-card transition-colors duration-300"
+            className="flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-primary/10 hover:border-primary hover:text-primary transition-colors duration-300"
           >
             <ArrowUp size={16} className="text-primary" />
-            <span className="text-sm text-muted-foreground font-inter">Back to top</span>
+            <span className="text-sm font-inter">Back to top</span>
           </button>
           <div className="flex items-center gap-1 text-xs text-muted-foreground font-inter">
             <span>© {currentYear} Made with</span>

@@ -46,11 +46,11 @@ const CustomCursor = () => {
     <>
       <div
         className="cursor-inner"
-        style={{ transform: `translate3d(${innerPos.x}px, ${innerPos.y}px, 0)` }}
+        style={{ transform: `translate3d(${innerPos.x}px, ${innerPos.y}px, 0) translate(-50%, -50%)` }}
       />
       <div
         className="cursor-outer"
-        style={{ transform: `translate3d(${outerPos.x}px, ${outerPos.y}px, 0)` }}
+        style={{ transform: `translate3d(${outerPos.x}px, ${outerPos.y}px, 0) translate(-50%, -50%)` }}
       />
     </>
   );

@@ -19,10 +19,10 @@ const useTilt = (ref: React.RefObject<HTMLDivElement>) => {
       const centerY = rect.height / 2;
       
       // Divide by a larger number to reduce tilt intensity
-      const rotateX = (y - centerY) / 40;
-      const rotateY = (centerX - x) / 40;
-      // Apply a gentler scale to avoid dramatic zoom on hover
-      element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      const rotateX = (y - centerY) / 80;
+      const rotateY = (centerX - x) / 80;
+      // Apply a minimal scale to avoid dramatic zoom on hover
+      element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
     };
 
     const handleMouseLeave = () => {
