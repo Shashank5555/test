@@ -17,12 +17,12 @@ const HeroSection = () => {
     
     if (typewriterElement) {
       // Set default text
-      typewriterElement.textContent = 'UI/UX Designer';
+      typewriterElement.textContent = 'Data Scientist';
       
       let animationInterval: NodeJS.Timeout;
       let isAnimating = false;
       
-      const titles = ["Product Designer", "Front-end Developer", "UI/UX Designer"];
+      const titles = ["Data Scientist", "Machine Learning Engineer", "Data Analyst"];
       let titleIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
@@ -80,7 +80,7 @@ const HeroSection = () => {
       const stopAnimation = () => {
         isAnimating = false;
         clearTimeout(animationInterval);
-        typewriterElement.textContent = 'UI/UX Designer';
+        typewriterElement.textContent = 'Data Scientist';
         titleIndex = 0;
         charIndex = 0;
         isDeleting = false;
@@ -112,14 +112,19 @@ const HeroSection = () => {
     };
   }, []);
 
-  const handleHireMe = () => {
-    const contactSection = document.querySelector('#contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  const handleViewMyWork = () => {
+    const projectsSection = document.querySelector('#projects');
+    projectsSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleDownloadCV = () => {
-    // Add CV download logic here
-    console.log('Download CV clicked');
+    // Download resume
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Sai_Shashank_Yerra_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -153,7 +158,7 @@ const HeroSection = () => {
             {/* Main Headline */}
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bricolage font-light text-foreground leading-tight">
               Hi, I'm{' '}
-              <span className="text-foreground">Sai Charan</span>
+              <span className="text-foreground">Sai Shashank Yerra</span>
               <br />
               <span className="typewriter text-foreground cursor-pointer"></span>
             </h1>
@@ -163,24 +168,16 @@ const HeroSection = () => {
               ref={subtitleRef}
               className="text-base md:text-lg text-muted-foreground font-inter font-light leading-relaxed"
             >
-              I craft digital experiences that bridge the gap between human needs and 
-              technological possibilities.
+              Harnessing data, machine learning and modern web technologies to build intelligent products.
             </p>
 
             {/* CTA Buttons */}
             <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4">
               <button 
-                onClick={handleHireMe}
-                className="glow-button cursor-glow flex items-center justify-center gap-3 group"
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
-                  e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
-                }}
+                onClick={handleViewMyWork}
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-lg flex items-center justify-center gap-3 group hover:bg-primary/90 transition-colors duration-300"
               >
-                Hire Me
+                View My Work
                 <ArrowRight 
                   size={18} 
                   className="transition-transform duration-300 group-hover:translate-x-1" 
@@ -189,17 +186,10 @@ const HeroSection = () => {
               
               <button 
                 onClick={handleDownloadCV}
-                className="secondary-button cursor-glow flex items-center justify-center gap-3"
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
-                  e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
-                }}
+                className="border border-border px-6 py-3 rounded-lg flex items-center justify-center gap-3 hover:border-primary/50 transition-colors duration-300"
               >
                 <Download size={16} />
-                Download CV
+                Download Resume
               </button>
             </div>
           </div>
@@ -212,11 +202,11 @@ const HeroSection = () => {
           {/* Right Content - Skills */}
           <div className="lg:col-span-1 flex flex-col justify-center">
             <div className="space-y-4">
-              <div className="skill-card">UI Design</div>
-              <div className="skill-card">UX Research</div>
-              <div className="skill-card">Interaction Design</div>
-              <div className="skill-card">Product Design</div>
-              <div className="skill-card">Front-end Dev</div>
+              <div className="skill-card">Python</div>
+              <div className="skill-card">Machine Learning</div>
+              <div className="skill-card">Deep Learning & LLMs</div>
+              <div className="skill-card">Data Visualization</div>
+              <div className="skill-card">Web Development</div>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
 import ProjectsSection from './ProjectsSection';
+import CertificationsSection from './CertificationsSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
 
@@ -42,6 +43,7 @@ const Portfolio = () => {
           <HeroSection />
           <AboutSection />
           <ProjectsSection />
+          <CertificationsSection />
           <ContactSection />
         </main>
         <Footer />

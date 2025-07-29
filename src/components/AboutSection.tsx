@@ -27,48 +27,40 @@ const AboutSection = () => {
 
   const expertiseCategories = [
     {
-      name: 'Tools & Platforms',
-      icon: PaintBrush,
-      skills: ['Figma', 'Adobe Creative Cloud (Photoshop, Illustrator, InDesign)', 'Adobe XD', 'Axure RP', 'Framer', 'Miro', 'Notion', 'Zeplin']
-    },
-    {
-      name: 'UX & Visual Design',
-      icon: Palette,
-      skills: ['HCI design principles', 'wireframing', 'prototyping', 'user flows', 'hi-fi mockups', 'design systems', 'IA', 'heuristic analysis', 'interaction design', 'storytelling', 'usability & A/B testing', 'user journey mapping', 'quantitative & qualitative research']
-    },
-    {
-      name: 'Frameworks & Methodologies',
-      icon: Gear,
-      skills: ['Agile (Scrum)', 'Lean UX', 'Leanstack (Build-Measure-Learn cycles)', 'Design Thinking', 'Rapid prototyping']
-    },
-    {
-      name: 'Technical Fluency & Development',
+      name: 'Programming & Development',
       icon: Code,
-      skills: ['Front-end dev. (HTML5, CSS-Flexbox, Grid, SCSS)', 'JavaScript (ES6)', 'React.js', 'Bootstrap', 'Tailwind CSS', 'Git', 'GitHub', 'Netlify', 'VS Code', 'DevOps Concepts', 'Data & AI literacy']
+      skills: ['Python', 'JavaScript', 'SQL & PostgreSQL', 'HTML/CSS', 'Git & GitHub', 'Docker & Jenkins']
     },
     {
-      name: 'Accessibility & Standards',
+      name: 'Machine Learning & AI',
+      icon: Gear,
+      skills: ['Machine Learning', 'Deep Learning & LLMs', 'Computer Vision', 'Natural Language Processing', 'Statistical Analysis']
+    },
+    {
+      name: 'Data Analysis & Visualization',
+      icon: Palette,
+      skills: ['Data Visualization (Matplotlib, Seaborn)', 'Pandas', 'NumPy', 'Exploratory Data Analysis', 'Data Wrangling']
+    },
+    {
+      name: 'Web Development & Cloud',
       icon: Globe,
-      skills: ['WCAG 2.1', 'semantic HTML', 'ARIA roles', 'responsive & mobile-first design', 'cross-browser testing']
+      skills: ['Web Development (HTML/CSS/JS)', 'FastAPI', 'FlutterFlow', 'Cloud (DigitalOcean)', 'Cross-platform Apps']
+    },
+    {
+      name: 'Tools & Technologies',
+      icon: PaintBrush,
+      skills: ['Jupyter Notebooks', 'VS Code', 'Modern ML Libraries', 'Microservices', 'Automated Processes']
     }
   ];
 
   const experiences = [
     {
-      title: 'UI/UX Developer – Xcell IT Systems (USA)',
-      description: 'At Xcell IT Systems, I led end-to-end UI/UX design and front-end development for a cloud-based platform serving diverse user roles. I collaborated in Agile teams, built scalable design systems, and developed responsive, accessible interfaces using React.js, HTML5, and CSS3.'
+      title: 'Python Developer – LVTLABS (USA)',
+      description: 'Leading development of cross-platform applications and scalable microservices architecture. Implementing modern technologies and best practices to deliver robust, high-performance solutions that meet enterprise requirements.'
     },
     {
-      title: 'UI/UX Designer – FlyEasy LLC (USA)',
-      description: 'At FlyEasy, I drove user research, UX strategy, and interface design for AI-powered and AR-integrated travel solutions. My work spanned from concept to MVP, blending design thinking, usability testing, and cross-functional collaboration to deliver impactful digital products.'
-    },
-    {
-      title: 'UI Designer – Urban Ecosystems (India)',
-      description: 'I designed and optimized digital user journeys for mentorship platforms, using UX research and service design to boost user engagement. My chatbot prototypes and workflow redesigns directly improved retention and interaction metrics.'
-    },
-    {
-      title: 'Visual Designer – Freelance (India)',
-      description: 'As a freelance designer, I crafted brand identities, marketing campaigns, and web visuals by closely collaborating with clients. I integrated user feedback through iterative design processes and ran remote workshops to align creative goals with business needs.'
+      title: 'Systems Engineer – Tata Consultancy Services (India)',
+      description: 'Orchestrated end-to-end automation of complex business processes and seamless integration of data from multiple enterprise systems. Designed and implemented efficient data pipelines that improved operational efficiency by 40%.'
     }
   ];
 
@@ -179,24 +171,17 @@ const AboutSection = () => {
     <section 
       id="about"
       ref={sectionRef}
-      className="py-20 lg:py-32 relative overflow-hidden"
+      className="py-20 lg:py-32 relative overflow-hidden bg-background-secondary"
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section: Photo & About Me */}
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
           {/* Profile Image */}
-          <div ref={profileRef} className="relative">
-            <div className="w-24 h-24 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_hsla(262,83%,58%,0.3)] cursor-glow"
-                 onMouseMove={(e) => {
-                   const rect = e.currentTarget.getBoundingClientRect();
-                   const x = e.clientX - rect.left;
-                   const y = e.clientY - rect.top;
-                   e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
-                   e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
-                 }}>
+          <div ref={profileRef} className="relative flex justify-center lg:justify-start">
+            <div className="w-48 h-48 rounded-2xl overflow-hidden transition-all duration-300">
               <img 
                 src="/lovable-uploads/6fbc99c3-45a2-47f6-9d79-25327a6dbe4a.png"
-                alt="Sai Charan - UI/UX Designer"
+                alt="Sai Shashank Yerra - Data Scientist"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -213,16 +198,29 @@ const AboutSection = () => {
 
             <div className="space-y-4 text-base text-muted-foreground font-inter font-light leading-relaxed">
               <p>
-                Passionate UI/UX Designer with 5+ years creating digital experiences that solve real problems.
+                I am a data scientist and software developer based in Baltimore, Maryland. I earned my Master of Professional Studies in Data Science from the University of Maryland, Baltimore County (UMBC) in May 2024, graduating with a GPA of 3.9/4.0.
               </p>
               <p>
-                I specialize in user-centered design, combining research with creative solutions.
+                Prior to that, I completed a Bachelor of Technology in Information Technology from Gayatri Vidya Parishad College of Engineering in India.
+              </p>
+              <p>
+                Currently, I work as a Python Developer at LVTLABS, where I build cross-platform apps and scalable microservices. Previously, I served as a Systems Engineer at Tata Consultancy Services, developing automated processes and integrating data from dozens of sources.
+              </p>
+              <p>
+                I'm passionate about leveraging data to solve real-world problems—whether that means creating personalized recommendation systems, analysing social media to deliver targeted content, building accessible computer-vision tools or optimising healthcare outcomes with predictive models.
               </p>
             </div>
 
             <div className="pt-4">
               <button 
-                onClick={() => console.log('Download Resume')}
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/resume.pdf';
+                  link.download = 'Sai_Shashank_Yerra_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
                 className="glow-button cursor-glow flex items-center gap-2"
                 onMouseMove={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
@@ -232,17 +230,17 @@ const AboutSection = () => {
                   e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
                 }}
               >
-                Resume
+                Download Resume
                 <ArrowRight size={14} />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Expertise Section */}
+        {/* Skills Section */}
         <div ref={skillsRef} className="space-y-12 mb-20">
-          <h3 className="text-2xl font-inter font-light text-foreground mb-12 text-center">
-            Expertise
+          <h3 className="text-3xl lg:text-4xl font-inter font-light text-foreground mb-12 text-center">
+            Skills
           </h3>
 
           <div className="grid lg:grid-cols-2 gap-16">
@@ -280,7 +278,7 @@ const AboutSection = () => {
 
             {/* Right Content - Skills */}
             <div className="space-y-6">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
                   {(() => {
                     const IconComponent = expertiseCategories[activeCategory].icon;
@@ -292,21 +290,20 @@ const AboutSection = () => {
                 </h4>
               </div>
               
-              <ul className="space-y-2">
+              <div className="grid grid-cols-2 gap-3">
                 {expertiseCategories[activeCategory].skills.map((skill, index) => (
-                  <li key={index} className="text-sm text-muted-foreground font-inter leading-relaxed flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                    {skill}
-                  </li>
+                  <div key={index} className="skill-container bg-card border border-border/50 rounded-lg p-3 hover:border-primary/30 transition-colors duration-300">
+                    <span className="text-sm text-foreground font-inter">{skill}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Experience Section */}
         <div ref={experienceRef} className="space-y-8">
-          <h3 className="text-2xl font-inter font-light text-foreground mb-12 text-center">
+          <h3 className="text-3xl lg:text-4xl font-inter font-light text-foreground mb-12 text-center">
             Experience
           </h3>
 
@@ -322,7 +319,7 @@ const AboutSection = () => {
             <div className="space-y-12">
               {experiences.map((experience, index) => (
                 <div key={index} className="experience-item relative flex gap-6">
-                  <div className="w-3 h-3 bg-primary rounded-full relative z-10 mt-1 shadow-lg shadow-primary/50"></div>
+                  <div className="w-3 h-3 bg-primary rounded-full relative z-10 self-center shadow-lg shadow-primary/50"></div>
                   <div className="flex-1 space-y-2 bg-background/30 p-6 rounded-lg border border-muted-foreground/20 cursor-glow"
                        onMouseMove={(e) => {
                          const rect = e.currentTarget.getBoundingClientRect();

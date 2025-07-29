@@ -13,6 +13,7 @@ const Footer = () => {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Certifications', href: '#certifications' },
     { label: 'Contact', href: '#contact' }
   ];
 
@@ -96,15 +97,14 @@ const Footer = () => {
           {/* Brand & Description */}
           <div className="space-y-6">
             <div className="text-2xl font-inter font-light text-foreground">
-              <span className="text-primary">S</span>ai <span className="text-accent">C</span>haran
+              <span className="text-primary">S</span>ai <span className="text-accent">S</span>hashank
             </div>
             <p className="text-muted-foreground font-inter font-light leading-relaxed">
-              Crafting digital experiences that bridge the gap between human needs 
-              and technological possibilities.
+              Harnessing data, machine learning and modern web technologies to build intelligent products.
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-              <span>Available for new projects</span>
+              <span>Available for new opportunities</span>
             </div>
           </div>
 
@@ -133,10 +133,10 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               <a 
-                href="mailto:hello@saicharan.design"
+                href="mailto:saishashank15@gmail.com"
                 className="block text-muted-foreground hover:text-primary transition-colors duration-300 font-inter text-sm"
               >
-                hello@saicharan.design
+                saishashank15@gmail.com
               </a>
               <button
                 onClick={() => handleLinkClick('#contact')}
@@ -156,22 +156,7 @@ const Footer = () => {
           <div className="flex items-center gap-2 text-sm text-muted-foreground font-inter">
             <span>© 2024 Made with</span>
             <Heart size={16} className="text-primary" weight="fill" />
-            <span>by Sai Charan</span>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <span className="text-xs text-muted-foreground font-inter">
-              Scroll to top
-            </span>
-            <button
-              onClick={scrollToTop}
-              className="p-3 glass-card rounded-full hover-lift group transition-all duration-300"
-            >
-              <ArrowUp 
-                size={16} 
-                className="text-primary transition-transform duration-300 group-hover:-translate-y-1" 
-              />
-            </button>
+            <span>by Sai Shashank Yerra</span>
           </div>
         </div>
       </div>

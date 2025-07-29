@@ -8,7 +8,7 @@ import {
   ChatText,
   GithubLogo,
   LinkedinLogo,
-  TwitterLogo
+  ArrowUp
 } from 'phosphor-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -28,20 +28,14 @@ const ContactSection = () => {
     { 
       icon: GithubLogo, 
       label: 'GitHub', 
-      url: 'https://github.com', 
+      url: 'https://github.com/Shashank5555', 
       color: 'hover:text-primary' 
     },
     { 
       icon: LinkedinLogo, 
       label: 'LinkedIn', 
-      url: 'https://linkedin.com', 
+      url: 'https://www.linkedin.com/in/sai-shashank-yerra', 
       color: 'hover:text-accent' 
-    },
-    { 
-      icon: TwitterLogo, 
-      label: 'Twitter', 
-      url: 'https://twitter.com', 
-      color: 'hover:text-secondary' 
     }
   ];
 
@@ -148,7 +142,7 @@ const ContactSection = () => {
     <section 
       id="contact"
       ref={sectionRef}
-      className="py-20 lg:py-32 relative overflow-hidden"
+      className="py-20 lg:py-32 relative overflow-hidden bg-background"
     >
       {/* Background Elements */}
       <div className="absolute top-20 left-20 w-60 h-60 bg-primary/5 rounded-full blur-3xl"></div>
@@ -261,22 +255,21 @@ const ContactSection = () => {
               
               <div className="space-y-6 text-muted-foreground font-inter font-light">
                 <p className="text-lg leading-relaxed">
-                  I'm always open to discussing new opportunities, 
-                  creative projects, or just having a chat about design and technology.
+                  If you'd like to collaborate or just say hello, feel free to reach out!
                 </p>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <EnvelopeSimple size={20} className="text-primary" />
-                    <span>hello@saicharan.design</span>
+                    <span>saishashank15@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full"></div>
-                    <span>Available for freelance projects</span>
+                    <span>Baltimore, MD, USA</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    <span>Response within 24 hours</span>
+                    <span>Available for new opportunities</span>
                   </div>
                 </div>
               </div>
@@ -304,16 +297,32 @@ const ContactSection = () => {
                   </a>
                 ))}
               </div>
+              
+              {/* Scroll to Top */}
+              <div className="flex items-center gap-4 pt-6">
+                <span className="text-xs text-muted-foreground font-inter">
+                  Scroll to top
+                </span>
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="p-3 glass-card rounded-full hover-lift group transition-all duration-300"
+                >
+                  <ArrowUp 
+                    size={16} 
+                    className="text-primary transition-transform duration-300 group-hover:-translate-y-1" 
+                  />
+                </button>
+              </div>
             </div>
 
             {/* Decorative Quote */}
             <div className="glass-card p-6 rounded-2xl">
               <blockquote className="text-foreground/80 font-inter font-light italic text-lg leading-relaxed">
-                "Design is not just what it looks like and feels like. 
-                Design is how it works."
+                "Data is the new oil. It's valuable, but if unrefined it cannot really be used. 
+                It has to be changed into gas, plastic, chemicals, etc. to create a valuable entity that drives profitable activity."
               </blockquote>
               <cite className="block mt-4 text-primary text-sm font-medium">
-                — Steve Jobs
+                — Clive Humby
               </cite>
             </div>
           </div>

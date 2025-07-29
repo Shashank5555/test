@@ -4,6 +4,7 @@ import { List, X } from 'phosphor-react';
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const navRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const navLinks = [{
@@ -13,8 +14,14 @@ const Navigation = () => {
     label: 'About',
     href: '#about'
   }, {
+    label: 'Skills',
+    href: '#about'
+  }, {
     label: 'Projects',
     href: '#projects'
+  }, {
+    label: 'Certifications',
+    href: '#certifications'
   }, {
     label: 'Contact',
     href: '#contact'
@@ -22,6 +29,18 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'projects', 'certifications', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -66,20 +85,29 @@ const Navigation = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="text-2xl font-inter font-light text-foreground">
-              <span className="text-primary">Sai</span> <span className="text-accent">Charan</span>
+              <span className="text-primary">Sai</span> <span className="text-accent">Shashank</span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link, index) => <button key={index} onClick={() => handleLinkClick(link.href)} className="relative text-foreground/80 hover:text-foreground font-inter font-light transition-colors duration-300 group">
-                  {link.label}
-                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
-                </button>)}
-              
-              {/* CTA Button */}
-              <button className="glow-button text-sm">
-                Hire Me
-              </button>
+              {navLinks.map((link, index) => {
+                const isActive = activeSection === link.href.replace('#', '') || 
+                                (link.href === '#about' && activeSection === 'about');
+                return (
+                  <button 
+                    key={index} 
+                    onClick={() => handleLinkClick(link.href)} 
+                    className={`relative font-inter font-light transition-colors duration-300 group ${
+                      isActive ? 'text-primary' : 'text-foreground/80 hover:text-foreground'
+                    }`}
+                  >
+                    {link.label}
+                    <div className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></div>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Mobile Menu Button */}
@@ -110,8 +138,8 @@ const Navigation = () => {
                 </button>)}
               
               <div className="pt-6 border-t border-border/50">
-                <button className="glow-button w-full text-center" onClick={() => handleLinkClick('#contact')}>
-                  Hire Me
+                <button className="w-full text-center bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-300" onClick={() => handleLinkClick('#contact')}>
+                  Contact Me
                 </button>
               </div>
             </div>
