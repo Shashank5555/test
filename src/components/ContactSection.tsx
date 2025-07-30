@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -18,12 +18,6 @@ const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const socialRef = useRef<HTMLDivElement>(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Current year used in the footer attribution
   const currentYear = new Date().getFullYear();
@@ -114,36 +108,6 @@ const ContactSection = () => {
     };
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
-
-    // Add success animation
-    gsap.to('.submit-button', {
-      scale: 1.1,
-      duration: 0.2,
-      yoyo: true,
-      repeat: 1,
-      ease: "power2.inOut"
-    });
-  };
-
   return (
     <section 
       id="contact"
@@ -175,7 +139,7 @@ const ContactSection = () => {
                 Send me a <span className="text-foreground">message</span>
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action="https://formspree.io/f/xovlwglg" method="POST" className="space-y-6">
                 {/* Name Input */}
                 <div className="form-input space-y-2">
                   <label className="flex items-center gap-2 text-foreground font-inter text-sm">
@@ -185,8 +149,6 @@ const ContactSection = () => {
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
                     required
                     className="w-full p-4 glass-input border-2 border-border/60 font-inter placeholder:text-muted-foreground rounded-lg"
                     placeholder="Enter your full name"
@@ -202,8 +164,6 @@ const ContactSection = () => {
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
                     required
                     className="w-full p-4 glass-input border-2 border-border/60 font-inter placeholder:text-muted-foreground rounded-lg"
                     placeholder="Enter your email address"
@@ -218,8 +178,6 @@ const ContactSection = () => {
                   </label>
                   <textarea
                     name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
                     required
                     rows={6}
                     className="w-full p-4 glass-input border-2 border-border/60 font-inter placeholder:text-muted-foreground rounded-lg resize-none"
@@ -230,23 +188,10 @@ const ContactSection = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="submit-button bg-primary text-primary-foreground px-6 py-3 rounded-lg w-full flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/90 transition-colors duration-300"
+                  className="bg-primary text-primary-foreground px-6 py-3 rounded-lg w-full flex items-center justify-center gap-3 hover:bg-primary/90 transition-colors duration-300"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <PaperPlaneTilt 
-                        size={20} 
-                        className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" 
-                      />
-                    </>
-                  )}
+                  Send Message
+                  <PaperPlaneTilt size={20} className="transition-transform duration-300 hover:translate-x-1 hover:-translate-y-1" />
                 </button>
               </form>
             </div>
