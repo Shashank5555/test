@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -18,6 +18,9 @@ const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const socialRef = useRef<HTMLDivElement>(null);
+
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Current year used in the footer attribution
   const currentYear = new Date().getFullYear();
@@ -108,6 +111,37 @@ const ContactSection = () => {
     };
   }, []);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatusMessage(null);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data,
+      });
+      if (res.ok) {
+        setStatusMessage('Your message has been sent!');
+        setTimeout(() => setStatusMessage(null), 3000);
+        form.reset();
+        setTimeout(() => {
+          window.location.href = window.location.origin + window.location.pathname + '#contact';
+        }, 2000);
+      } else {
+        setStatusMessage('Failed to send message. Please try again.');
+        setTimeout(() => setStatusMessage(null), 3000);
+      }
+    } catch {
+      setStatusMessage('Error sending message. Please try again.');
+      setTimeout(() => setStatusMessage(null), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section 
       id="contact"
@@ -139,7 +173,12 @@ const ContactSection = () => {
                 Send me a <span className="text-foreground">message</span>
               </h3>
               
-              <form action="https://formspree.io/f/xovlwglg" method="POST" className="space-y-6">
+              <form action="https://formspree.io/f/xovlwglg" onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="https://shashank5555.github.io/test-main-3/#contact"
+                />
                 {/* Name Input */}
                 <div className="form-input space-y-2">
                   <label className="flex items-center gap-2 text-foreground font-inter text-sm">
@@ -188,11 +227,15 @@ const ContactSection = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="bg-primary text-primary-foreground px-6 py-3 rounded-lg w-full flex items-center justify-center gap-3 hover:bg-primary/90 transition-colors duration-300"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <PaperPlaneTilt size={20} className="transition-transform duration-300 hover:translate-x-1 hover:-translate-y-1" />
                 </button>
+                {statusMessage && (
+                  <p className="mt-2 text-center text-sm text-primary">{statusMessage}</p>
+                )}
               </form>
             </div>
           </div>
